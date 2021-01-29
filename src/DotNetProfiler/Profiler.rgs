@@ -1,0 +1,26 @@
+HKCR
+{
+	DotNetProfiler.Profiler.1 = s 'Profiler Class'
+	{
+		CLSID = s '{9E2B38F2-7355-4C61-A54F-434B7AC266C0}'
+	}
+	DotNetProfiler.Profiler = s 'Profiler Class'
+	{
+		CLSID = s '{9E2B38F2-7355-4C61-A54F-434B7AC266C0}'
+		CurVer = s 'DotNetProfiler.Profiler.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9E2B38F2-7355-4C61-A54F-434B7AC266C0} = s 'Profiler Class'
+		{
+			ProgID = s 'DotNetProfiler.Profiler.1'
+			VersionIndependentProgID = s 'DotNetProfiler.Profiler'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{DA37BE57-9EA8-4622-BDF5-E724CD3A60C1}'
+		}
+	}
+}

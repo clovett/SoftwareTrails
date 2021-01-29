@@ -1,0 +1,14 @@
+﻿<Window x:Class="SoftwareTrails.AttachDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:c="clr-namespace:SoftwareTrails"
+        Title="Attach to Process" Height="500" Width="690" Padding="0">
+    <Window.CommandBindings>
+
+        <CommandBinding Command="{x:Static c:AttachControl.AttachCommand}" CanExecute="AttachCommandCanExecute" Executed="AttachCommandExecuted" />
+
+    </Window.CommandBindings>
+    <Grid Margin="0">
+        <c:AttachControl x:Name="AttachPanel" Padding="0"/>
+    </Grid>
+</Window>

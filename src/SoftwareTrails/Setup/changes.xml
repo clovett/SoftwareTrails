@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<changes>
+  <change version="1.0.1.1" date="12/5/2016">
+    Update to VS 2019 and it's new VC runtime.
+  </change>
+  <change version="1.0.0.33" date="12/5/2016">
+    Fix id on methods so we can compare graphs.
+  </change>
+  <change version="1.0.0.31" date="9/23/2012">
+    Add support for 64 bit managed apps, removing the need to modify them with corflags /32BITREQ+.
+  </change>
+</changes>

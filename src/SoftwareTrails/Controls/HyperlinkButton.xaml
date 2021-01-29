@@ -1,0 +1,37 @@
+﻿<Button x:Class="SoftwareTrails.HyperlinkButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Padding="0"
+             d:DesignHeight="16" d:DesignWidth="74">
+    <Button.Template>
+        <ControlTemplate TargetType="{x:Type Button}">
+            <Grid MouseEnter="OnGridMouseEnter" MouseLeave="OnGridMouseLeave"
+                  Margin="{TemplateBinding Padding}">
+                <TextBlock Text="{TemplateBinding Content}">
+                    <TextBlock.Foreground >
+                        <SolidColorBrush x:Name="ForegroundColor" Color="SlateGray"/>
+                    </TextBlock.Foreground>
+                </TextBlock>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter" >
+                    <BeginStoryboard>
+                        <Storyboard >
+                            <ColorAnimation Duration="0:0:0.1" To="Blue" Storyboard.TargetProperty="Color" Storyboard.TargetName="ForegroundColor" />                      
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.1" To="SlateGray" Storyboard.TargetProperty="Color" Storyboard.TargetName="ForegroundColor" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Button.Template>
+</Button>

@@ -1,0 +1,5 @@
+set COR_ENABLE_PROFILING=1
+
+set Cor_Profiler={D795A307-4F19-4E49-B714-8641DF72F493}
+
+set COR_PROFILER_PATH=%~dp0Debug\DotNetProfiler.dll
