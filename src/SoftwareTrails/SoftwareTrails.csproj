@@ -21,7 +21,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <PublishUrl>ftp://ftp.funchores.net/lovettSoftware.com/Downloads/softwaretrails/</PublishUrl>
+    <PublishUrl>D:\git\clovett\SoftwareTrails\publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -31,12 +31,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://www.lovettsoftware.com/downloads/softwaretrails/</InstallUrl>
-    <SupportUrl>http://www.lovettsoftware.com</SupportUrl>
+    <InstallUrl>https://lovettsoftwarestorage.blob.core.windows.net/downloads/SoftwareTrails/</InstallUrl>
+    <SupportUrl>https://github.com/clovett/SoftwareTrails</SupportUrl>
     <ProductName>SoftwareTrails</ProductName>
     <PublisherName>Lovett Software</PublisherName>
+    <WebPage>install.htm</WebPage>
     <DisallowUrlActivation>true</DisallowUrlActivation>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

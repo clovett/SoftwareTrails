@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <changes>
+  <change version="1.0.1.2" date="12/5/2016">
+    Move installer 
+  </change>
   <change version="1.0.1.1" date="12/5/2016">
     Update to VS 2019 and it's new VC runtime.
   </change>

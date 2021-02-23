@@ -728,7 +728,7 @@ namespace SoftwareTrails
         bool updateAvailable;
 
         private const string AppName = "SoftwareTrails.application";
-        private static Uri DownloadSite = new Uri("http://www.lovettsoftware.com/LovettSoftware/Downloads/SoftwareTrails/");
+        private static Uri DownloadSite = new Uri("https://lovettsoftwarestorage.blob.core.windows.net/downloads/SoftwareTrails/");
 
         /// <summary>
         ///  Check if version has changed, and if so show version update info.

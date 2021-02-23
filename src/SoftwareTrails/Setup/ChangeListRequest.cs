@@ -16,7 +16,7 @@ namespace SoftwareTrails
     }
 
     /// <summary>
-    /// This class downloads the latest changes.xml from http://www.lovettsoftware.com/downloads/SoftwareTrails/Application Files/SoftwareTrails_1_0_0_145/Setup/changes.xml.deploy
+    /// This class downloads the latest changes.xml from the given DownloadSite URL
     /// </summary>
     public class ChangeListRequest
     {
