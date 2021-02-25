@@ -295,35 +295,6 @@
     <Resource Include="Icons\New.png" />
   </ItemGroup>
   <ItemGroup>
-    <!--<PublishFile Include="..\DotNetProfiler\$(Configuration)\x86\DotNetProfiler.dll">
-      <Visible>True</Visible>
-      <Group>
-      </Group>
-      <TargetPath>x86</TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
-    <PublishFile Include="..\DotNetProfiler\$(Configuration)\x64\DotNetProfiler.dll">
-      <Visible>True</Visible>
-      <Group>
-      </Group>
-      <TargetPath>x64</TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
-    <PublishFile Include="SoftwareTrailsAdmin\bin\$(Configuration)\SoftwareTrailsAdmin.exe">
-      <Visible>True</Visible>
-      <Group>
-      </Group>
-      <TargetPath>$(Configuration)</TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>-->
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Icons\Filter.png" />
     <Resource Include="Icons\Sort.png" />
   </ItemGroup>
