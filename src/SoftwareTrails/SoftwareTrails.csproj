@@ -37,7 +37,7 @@
     <PublisherName>Lovett Software</PublisherName>
     <WebPage>install.htm</WebPage>
     <DisallowUrlActivation>true</DisallowUrlActivation>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -125,6 +125,7 @@
   <PropertyGroup>
     <ManifestTimestampUrl>http://timestamp.comodoca.com</ManifestTimestampUrl>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="Microsoft.Msagl">
       <HintPath>..\MsAgl\Microsoft.Msagl.dll</HintPath>
@@ -190,7 +191,6 @@
     <Compile Include="Controls\QuickFilterControl.xaml.cs">
       <DependentUpon>QuickFilterControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\SelfInstaller.cs" />
     <Compile Include="Utilities\Settings.cs" />
     <Compile Include="ViewModel\StackWatcher.cs" />
     <Compile Include="Utilities\TargetConfiguration.cs" />
@@ -256,6 +256,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="copy_binaries.cmd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -294,12 +295,33 @@
     <Resource Include="Icons\New.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\DotNetProfiler\$(Configuration)\x86\DotNetProfiler.dll">
-      <Link>Profiler32\DotNetProfiler.dll</Link>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\SoftwareTrailsAdmin\bin\$(Configuration)\SoftwareTrailsAdmin.exe">
-      <Link>Profiler32\SoftwareTrailsAdmin.exe</Link>
-    </EmbeddedResource>
+    <!--<PublishFile Include="..\DotNetProfiler\$(Configuration)\x86\DotNetProfiler.dll">
+      <Visible>True</Visible>
+      <Group>
+      </Group>
+      <TargetPath>x86</TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="..\DotNetProfiler\$(Configuration)\x64\DotNetProfiler.dll">
+      <Visible>True</Visible>
+      <Group>
+      </Group>
+      <TargetPath>x64</TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="SoftwareTrailsAdmin\bin\$(Configuration)\SoftwareTrailsAdmin.exe">
+      <Visible>True</Visible>
+      <Group>
+      </Group>
+      <TargetPath>$(Configuration)</TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>-->
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\Filter.png" />
@@ -312,9 +334,6 @@
     <Resource Include="Icons\DgmlFile.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\DotNetProfiler\$(Configuration)\x64\DotNetProfiler.dll">
-      <Link>Profiler64\DotNetProfiler.dll</Link>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="Setup\changes.xml">
@@ -330,7 +349,43 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\Install.png" />
-    <EmbeddedResource Include="Profiler32\msvcp140.dll" />
+    <Content Include="Profiler32\DotNetProfiler.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiler32\msvcp140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiler32\msvcp140d.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiler32\vcruntime140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiler32\vcruntime140d.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiler64\DotNetProfiler.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiler64\msvcp140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiler64\msvcp140d.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiler64\vcruntime140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiler64\vcruntime140d.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiler64\vcruntime140_1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Profiler64\vcruntime140_1d.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <!--<EmbeddedResource Include="Profiler32\msvcp140.dll" />
     <EmbeddedResource Include="Profiler32\msvcp140d.dll" />
     <EmbeddedResource Include="Profiler32\vcruntime140.dll" />
     <EmbeddedResource Include="Profiler32\vcruntime140d.dll" />
@@ -339,12 +394,15 @@
     <EmbeddedResource Include="Profiler64\vcruntime140.dll" />
     <EmbeddedResource Include="Profiler64\vcruntime140d.dll" />
     <EmbeddedResource Include="Profiler64\vcruntime140_1.dll" />
-    <EmbeddedResource Include="Profiler64\vcruntime140_1d.dll" />
+    <EmbeddedResource Include="Profiler64\vcruntime140_1d.dll" />-->
     <Content Include="Setup\changes.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>"$(ProjectDir)copy_binaries.cmd" $(Configuration)</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

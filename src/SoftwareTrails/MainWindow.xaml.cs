@@ -298,14 +298,12 @@ namespace SoftwareTrails
 
             }
 
-            string profiler = settings.ProfilerDllPath = SelfInstaller.InstallProfiler(settings.ProfilerDllPath, is64bit);
+            string profiler = GetProfilerPath(is64bit);
             if (string.IsNullOrEmpty(profiler))
             {
                 // user chose not to register it.
                 return;
             }
-            
-
 
             StringBuilder buffer = new StringBuilder();
             string arguments = null;
@@ -456,18 +454,17 @@ namespace SoftwareTrails
             e.CanExecute = (controller != null || (Map != null && Map.HasBlocks));
         }
 
+        private string GetProfilerPath(bool is64Bit)
+        {
+            var location = System.IO.Path.GetDirectoryName(this.GetType().Assembly.Location);
+            var dir = is64Bit ? "Profiler64" : "Profiler32";
+            return System.IO.Path.Combine(location, dir, "DotNetProfiler.dll");
+        }
+
         private void Attach(Process launched)
         {
             bool is64Bit = Environment.Is64BitOperatingSystem && (NativeMethods.IsWow64Process(launched) != NativeMethods.IsWow64.Yes);
-
-            string profiler = settings.ProfilerDllPath = SelfInstaller.InstallProfiler(settings.ProfilerDllPath, is64Bit);
-            
-            if (string.IsNullOrEmpty(profiler))
-            {
-                // user chose not to register it.
-                return;
-            }
-
+            string profiler = GetProfilerPath(is64Bit);
             controller = new ProfilerControlModel();
             controller.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(OnControllerPropertyChanged);
 
