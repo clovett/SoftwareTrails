@@ -256,7 +256,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="copy_binaries.cmd" />
+    <None Include="check_build.cmd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -320,7 +320,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\Install.png" />
-    <Content Include="Profiler32\DotNetProfiler.dll">
+    <Content Include="..\DotNetProfiler\$(Configuration)\x64\DotNetProfiler.dll">
+      <Link>Profiler64\DotNetProfiler.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\DotNetProfiler\$(Configuration)\x86\DotNetProfiler.dll">
+      <Link>Profiler32\DotNetProfiler.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Profiler32\msvcp140.dll">
@@ -333,9 +338,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Profiler32\vcruntime140d.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Profiler64\DotNetProfiler.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Profiler64\msvcp140.dll">
@@ -372,7 +374,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>"$(ProjectDir)copy_binaries.cmd" $(Configuration)</PreBuildEvent>
+    <PreBuildEvent>"$(ProjectDir)check_build.cmd" $(Configuration)</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
