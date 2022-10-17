@@ -1010,6 +1010,7 @@ long CProfiler::GetVersion()
 
 HRESULT CProfiler::DeleteAll()
 {
+    g_functionCount = 0;
     if (_sharedMemory != NULL) 
     {
         _sharedMemory->Reset();

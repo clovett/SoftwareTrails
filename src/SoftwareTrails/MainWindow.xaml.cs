@@ -609,7 +609,7 @@ namespace SoftwareTrails
 
         void StartTimer()
         {
-            timer = new DispatcherTimer(TimeSpan.FromMilliseconds(1), DispatcherPriority.Normal, OnTick, Dispatcher);
+            timer = new DispatcherTimer(TimeSpan.FromMilliseconds(30), DispatcherPriority.Normal, OnTick, Dispatcher);
             timer.Start();
         }
 
